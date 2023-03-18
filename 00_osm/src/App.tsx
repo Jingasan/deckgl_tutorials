@@ -23,22 +23,25 @@ export default function App() {
     },
   });
   // 初期視点の設定
-  const [viewport, setViewport] = React.useState<InitialViewStateProps>({
-    longitude: 139.753,
-    latitude: 35.6844,
-    zoom: 14,
-    minZoom: 5,
-    maxZoom: 16,
-    pitch: 0,
-    bearing: 0,
-  });
+  const [initialViewState, setInitialViewState] =
+    React.useState<InitialViewStateProps>({
+      longitude: 139.753,
+      latitude: 35.6844,
+      zoom: 14,
+      minZoom: 5,
+      maxZoom: 16,
+      pitch: 0,
+      minPitch: 0,
+      maxPitch: 80,
+      bearing: 0,
+    });
   // 地図画面
   return (
     <div className="App">
       <DeckGL
         layers={[tileLayer]}
         controller={true}
-        initialViewState={viewport}
+        initialViewState={initialViewState}
       ></DeckGL>
       <div className="attribution">
         <a

@@ -1,9 +1,9 @@
 import React from "react";
 import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
-import { Tile3DLayer } from "deck.gl";
+import { Tile3DLayer } from "deck.gl/typed";
 import { Tiles3DLoader } from "@loaders.gl/3d-tiles";
-import { MapboxLayer } from "@deck.gl/mapbox/src";
+import { MapboxLayer } from "@deck.gl/mapbox/typed";
 import "./App.css";
 
 // MapLibreのMapオブジェクト
@@ -30,8 +30,10 @@ export default function App() {
       map.showTileBoundaries = true; // タイル境界線の表示
       map.on("load", () => {
         map.addLayer(
+          // @ts-ignore
           new MapboxLayer({
-            id: "tile3dlayer",
+            id: "Tile3DLayer",
+            // @ts-ignore
             type: Tile3DLayer,
             pointSize: 1,
             data: "https://plateau.geospatial.jp/main/data/3d-tiles/bldg/13100_tokyo/13101_chiyoda-ku/texture/tileset.json",

@@ -1,4 +1,5 @@
 import Map from "react-map-gl";
+import "./App.css";
 
 // Appコンポーネント
 export default function App() {
